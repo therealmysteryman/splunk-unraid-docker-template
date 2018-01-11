@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>splunk</Name>
+  <Repository>splunk/splunk:latest</Repository>
+  <Registry>https://hub.docker.com/r/splunk/splunk/~/dockerfile/</Registry>
+  <Network>bridge</Network>
+  <Privileged>false</Privileged>
+  <Support>https://hub.docker.com/r/splunk/splunk/</Support>
+  <Overview>The platform for operational intelligence</Overview>
+  <Category/>
+  <WebUI>http://[IP]:[PORT:8000]/</WebUI>
+  <TemplateURL/>
+  <Icon>http://i.imgur.com/KKoQMo6.png</Icon>
+  <ExtraParams></ExtraParams>
+  <DateInstalled>1515274511</DateInstalled>
+  <Description>The platform for operational intelligence</Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>8000</HostPort>
+        <ContainerPort>8000</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>9997</HostPort>
+        <ContainerPort>9997</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>8088</HostPort>
+        <ContainerPort>8088</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>1514</HostPort>
+        <ContainerPort>1514</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>8191</HostPort>
+        <ContainerPort>8191</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>514</HostPort>
+        <ContainerPort>514</ContainerPort>
+        <Protocol>udp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/splunk/etc</HostDir>
+      <ContainerDir>/opt/splunk/etc</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/var/log</HostDir>
+      <ContainerDir>/data</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/splunk/var</HostDir>
+      <ContainerDir>/opt/splunk/var</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value>--accept-license --answer-yes</Value>
+      <Name>SPLUNK_START_ARGS</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>1</Value>
+      <Name>OPTIMISTIC_ABOUT_FILE_LOCKING</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>root</Value>
+      <Name>SPLUNK_USER</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Config Name="Host Port 3" Target="8000" Default="" Mode="tcp" Description="Container Port: 8000" Type="Port" Display="always" Required="false" Mask="false">8000</Config>
+  <Config Name="Host Port 2" Target="9997" Default="" Mode="tcp" Description="Container Port: 9997" Type="Port" Display="always" Required="false" Mask="false">9997</Config>
+  <Config Name="Host Port 3" Target="8088" Default="" Mode="tcp" Description="Container Port: 8088" Type="Port" Display="always" Required="false" Mask="false">8088</Config>
+  <Config Name="Host Port 4" Target="1514" Default="" Mode="tcp" Description="Container Port: 1514" Type="Port" Display="always" Required="false" Mask="false">1514</Config>
+  <Config Name="Host Path 1" Target="/opt/splunk/etc" Default="" Mode="rw" Description="Container Path: /opt/splunk/etc" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/splunk/etc</Config>
+  <Config Name="Host Port 5" Target="8191" Default="" Mode="tcp" Description="Container Port: 8191" Type="Port" Display="always" Required="false" Mask="false">8191</Config>
+  <Config Name="Host Key 1" Target="SPLUNK_START_ARGS" Default="" Mode="" Description="Container Variable: SPLUNK_START_ARGS" Type="Variable" Display="always" Required="false" Mask="false">--accept-license --answer-yes</Config>
+  <Config Name="Host Path 3" Target="/data" Default="" Mode="rw" Description="Container Path: /data" Type="Path" Display="always" Required="false" Mask="false">/var/log</Config>
+  <Config Name="Host Key 2" Target="OPTIMISTIC_ABOUT_FILE_LOCKING" Default="" Mode="" Description="Container Variable: OPTIMISTIC_ABOUT_FILE_LOCKING" Type="Variable" Display="always" Required="false" Mask="false">1</Config>
+  <Config Name="Host Key 3" Target="SPLUNK_USER" Default="" Mode="" Description="Container Variable: SPLUNK_USER" Type="Variable" Display="always" Required="false" Mask="false">root</Config>
+  <Config Name="Host Path 3" Target="/opt/splunk/var" Default="" Mode="rw" Description="Container Path: /opt/splunk/var" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/splunk/var</Config>
+  <Config Name="Host Port 6" Target="514" Default="" Mode="udp" Description="Container Port: 514" Type="Port" Display="always" Required="false" Mask="false">514</Config>
+</Container>
